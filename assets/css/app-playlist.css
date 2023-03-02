@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+iframe {
+  display: block;
+  margin: 20px auto;
+  border: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+p {
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  padding-top: 20px;
+}

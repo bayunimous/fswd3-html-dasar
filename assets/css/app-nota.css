@@ -1,0 +1,24 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+}
+
+.tableBarang {
+  margin-top: 0;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+.tableBarang th,
+tr,
+td {
+  text-align: justify;
+  border: 1px solid #000000;
+  padding: 5px;
+}
+
+.tableNota {
+  margin-top: 10px;
+  border: none;
+  padding: 0;
+}
