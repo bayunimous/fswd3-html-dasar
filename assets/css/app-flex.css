@@ -1,0 +1,130 @@
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+h1 {
+  margin: 15px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.shadow {
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+}
+
+i {
+  color: white;
+  font-size: 1.5em;
+  margin: auto;
+}
+
+.container {
+  width: 470px;
+  height: 680px;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 5px solid #000;
+}
+
+.coffee {
+  width: 219px;
+  height: 219px;
+  margin: 8px;
+  background-color: #4cb050;
+}
+
+.gamepad {
+  width: 219px;
+  height: 219px;
+  margin: 7px;
+  margin-top: 16px;
+  background-color: #fe5722;
+}
+
+.github {
+  width: 219px;
+  height: 107px;
+  margin: 7px;
+  background-color: #03a9f5;
+}
+
+.save {
+  width: 101px;
+  height: 215px;
+  margin: 7px;
+  background-color: #fec107;
+}
+
+.umbrella {
+  width: 101px;
+  height: 101px;
+  margin: 7px;
+  background-color: #f44236;
+}
+
+.bomb {
+  width: 101px;
+  height: 101px;
+  margin: 7px;
+  background-color: #795547;
+}
+
+.bicycle {
+  width: 101px;
+  height: 215px;
+  margin: 7px;
+  margin-top: 16px;
+  background-color: #3f51b5;
+}
+
+.medium {
+  width: 336px;
+  height: 93px;
+  margin: 7px;
+  background-color: #ea1e63;
+}
+
+.instagram {
+  width: 101px;
+  height: 93px;
+  margin: 7px;
+  background-color: #e1b4eb;
+}
+
+.taxi {
+  width: 453px;
+  height: 93px;
+  margin: 7px;
+  background-color: #2196f3;
+}
+
+.third {
+  display: flex;
+}
+
+.fourth {
+  display: flex;
+  flex-direction: column;
+}
+
+.sixth {
+  display: flex;
+  flex-direction: column;
+}
+
+.seventh {
+  display: flex;
+}
+
+/* Path: assets\css\app-flex.css */
