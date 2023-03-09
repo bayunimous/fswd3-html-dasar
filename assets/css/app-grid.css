@@ -30,6 +30,7 @@ body {
 
 .item {
   display: grid;
+  justify-content: center;
   align-items: center;
   padding: 10px;
   background-color: #78ff07;
@@ -85,7 +86,7 @@ body {
   grid-row: 4 / 5;
   height: 40px;
   width: 50px;
-  background: #f44236;
+  background-color: #f44236;
 }
 
 .item-7 {
@@ -117,5 +118,11 @@ body {
   grid-row: 6 / 7;
   height: 40px;
   background-color: #2196f3;
+}
+
+.shadow {
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
 }
 /* Path: assets\css\app-grid-flex.css */
