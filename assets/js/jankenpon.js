@@ -7,6 +7,10 @@ function start() {
   //Inisiasi pilihan player dan komputer
   alert("Silahkan pilih salah satu: gunting, batu, kertas");
   let player = prompt("Masukkan pilihanmu: ");
+
+  //mengubah inputan player menjadi huruf kecil
+  player = player.toLowerCase();
+
   let computer = Math.random();
   if (computer < 0.34) {
     computer = "gunting";
