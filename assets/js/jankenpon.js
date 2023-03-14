@@ -6,7 +6,7 @@ function start() {
 
   //Inisiasi pilihan player dan komputer
   alert("Silahkan pilih salah satu: gunting, batu, kertas");
-  let player = prompt("Masukkan pilihanmu: ");
+  let player = prompt("Masukkan pilihanmu: (gunting, batu, kertas)");
 
   //mengubah inputan player menjadi huruf kecil
   player = player.toLowerCase();
