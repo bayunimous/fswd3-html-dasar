@@ -1001,47 +1001,32 @@ let students = [
   { id: 999, name: "Christeen Paris", gender: "M", score: 82 },
 ];
 
-// filter male students
+// filter mahasiswa laki-laki
 const maleStudents = students.filter((student) => student.gender === "M");
-// filter female students
+// filter mahasiswa perempuan
 const femaleStudents = students.filter((student) => student.gender === "F");
 
-//filter score female
-const femaleMinScore = femaleStudents.reduce(
-  (min, student) => Math.min(min, student.score),
-  Infinity
-);
-const femaleMaxScore = femaleStudents.reduce(
-  (max, student) => Math.max(max, student.score),
-  -Infinity
-);
-const femaleTotalScore = femaleStudents.reduce(
-  (sum, student) => sum + student.score,
-  0
-);
-const femaleAvgScore = femaleTotalScore / femaleStudents.length;
+// mendapatkan score minimal, maximal, dan rata-rata mahasiswa laki-laki
+const maleScores = maleStudents.map((student) => student.score);
+const maleMinScore = Math.min(...maleScores);
+const maleMaxScore = Math.max(...maleScores);
+const maleAvgScore =
+  maleScores.reduce((sum, score) => sum + score, 0) / maleScores.length;
 
-//filter score male
-const maleMinScore = maleStudents.reduce(
-  (min, student) => Math.min(min, student.score),
-  Infinity
-);
-const maleMaxScore = maleStudents.reduce(
-  (max, student) => Math.max(max, student.score),
-  -Infinity
-);
-const maleTotalScore = maleStudents.reduce(
-  (sum, student) => sum + student.score,
-  0
-);
-const maleAvgScore = maleTotalScore / maleStudents.length;
+// mendapatkan score minimal, maximal, dan rata-rata mahasiswa perempuan
+const femaleScores = femaleStudents.map((student) => student.score);
+const femaleMinScore = Math.min(...femaleScores);
+const femaleMaxScore = Math.max(...femaleScores);
+const femaleAvgScore =
+  femaleScores.reduce((sum, score) => sum + score, 0) / femaleScores.length;
 
+// menampilkan hasil
 console.log("Female students:", femaleStudents);
-console.log("Minimum score:", femaleMinScore);
-console.log("Maximum score:", femaleMaxScore);
-console.log("Average score:", femaleAvgScore);
+console.log("  Minimum score:", femaleMinScore);
+console.log("  Maximum score:", femaleMaxScore);
+console.log("  Average score:", femaleAvgScore);
 
 console.log("Male students:", maleStudents);
-console.log("Minimum score:", maleMinScore);
-console.log("Maximum score:", maleMaxScore);
-console.log("Average score:", maleAvgScore);
+console.log("  Minimum score:", maleMinScore);
+console.log("  Maximum score:", maleMaxScore);
+console.log("  Average score:", maleAvgScore);
