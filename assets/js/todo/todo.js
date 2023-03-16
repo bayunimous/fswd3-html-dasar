@@ -2,6 +2,7 @@ const form = document.querySelector("form");
 const input = document.querySelector("form input");
 const todos = document.querySelector(".todos");
 
+//SUBMIT BUTTON
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   const text = input.value.trim();
@@ -18,6 +19,7 @@ form.addEventListener("submit", function (event) {
   }
 });
 
+//DELETE BUTTON
 todos.addEventListener("click", function (event) {
   if (event.target.tagName === "BUTTON") {
     event.target.parentNode.remove();
