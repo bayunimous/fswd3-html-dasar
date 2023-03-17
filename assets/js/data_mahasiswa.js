@@ -1069,7 +1069,9 @@ let mapObject = {
       max: femaleMaxScore,
       min: femaleMinScore,
     },
-    students: femaleStudents,
+    students: {
+      femaleStudents,
+    },
   },
   male: {
     count: maleCount,
@@ -1078,7 +1080,9 @@ let mapObject = {
       max: maleMaxScore,
       min: maleMinScore,
     },
-    students: maleStudents,
+    students: {
+      maleStudents,
+    },
   },
 };
 
