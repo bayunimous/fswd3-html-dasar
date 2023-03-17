@@ -1,4 +1,4 @@
-let students = [
+let mahasiswa = [
   { id: 0, name: "Becki Howe", gender: "F", score: 65 },
   { id: 1, name: "Yuri Schildgen", gender: "F", score: 97 },
   { id: 2, name: "Becki Schewe", gender: "M", score: 89 },
@@ -1002,31 +1002,85 @@ let students = [
 ];
 
 // filter mahasiswa laki-laki
-const maleStudents = students.filter((student) => student.gender === "M");
+const maleStudents = mahasiswa.filter((student) => student.gender === "M");
 // filter mahasiswa perempuan
-const femaleStudents = students.filter((student) => student.gender === "F");
+const femaleStudents = mahasiswa.filter((student) => student.gender === "F");
+
+//jumlah mahasiswa laki-laki
+const maleCount = maleStudents.length;
+//jumlah mahasiswa perempuan
+const femaleCount = femaleStudents.length;
 
 // mendapatkan score minimal, maximal, dan rata-rata mahasiswa laki-laki
 const maleScores = maleStudents.map((student) => student.score);
+let maleScoreTotal = 0;
+for (let i = 0; i < maleScores.length; i++) {
+  maleScoreTotal = maleScoreTotal + maleScores[i];
+}
+
 const maleMinScore = Math.min(...maleScores);
 const maleMaxScore = Math.max(...maleScores);
-const maleAvgScore =
-  maleScores.reduce((sum, score) => sum + score, 0) / maleScores.length;
+const maleAvgScore = maleScoreTotal / maleCount;
+// maleScores.reduce((sum, score) => sum + score, 0) / maleScores.length;
 
 // mendapatkan score minimal, maximal, dan rata-rata mahasiswa perempuan
 const femaleScores = femaleStudents.map((student) => student.score);
+let femaleScoreTotal = 0;
+for (let i = 0; i < femaleScores.length; i++) {
+  femaleScoreTotal = femaleScoreTotal + femaleScores[i];
+}
+
 const femaleMinScore = Math.min(...femaleScores);
 const femaleMaxScore = Math.max(...femaleScores);
-const femaleAvgScore =
-  femaleScores.reduce((sum, score) => sum + score, 0) / femaleScores.length;
+const femaleAvgScore = femaleScoreTotal / femaleCount;
+// femaleScores.reduce((sum, score) => sum + score, 0) / femaleScores.length;
 
-// menampilkan hasil
-console.log("Female students:", femaleStudents);
+//informasi
+alert("Periksa Console Log Untuk Melihat Hasil");
+// menampilkan hasil perempuan
+console.log("Female students:", femaleCount);
 console.log("  Minimum score:", femaleMinScore);
 console.log("  Maximum score:", femaleMaxScore);
 console.log("  Average score:", femaleAvgScore);
 
-console.log("Male students:", maleStudents);
+// menampilkan hasil laki-laki
+console.log("========================================================");
+console.log("Male students:", maleCount);
 console.log("  Minimum score:", maleMinScore);
 console.log("  Maximum score:", maleMaxScore);
 console.log("  Average score:", maleAvgScore);
+
+// menampilkan hasil keseluruhan
+console.log("========================================================");
+console.log("All students:", mahasiswa.length);
+console.log("  Minimum score:", Math.min(femaleMinScore, maleMinScore));
+console.log("  Maximum score:", Math.max(femaleMaxScore, maleMaxScore));
+console.log(
+  "  Average score All Students:",
+  (femaleAvgScore + maleAvgScore) / 2
+);
+
+//Mapping Object
+let mapObject = {
+  female: {
+    count: femaleCount,
+    score: {
+      average: femaleAvgScore,
+      max: femaleMaxScore,
+      min: femaleMinScore,
+    },
+    students: femaleStudents,
+  },
+  male: {
+    count: maleCount,
+    score: {
+      average: maleAvgScore,
+      max: maleMaxScore,
+      min: maleMinScore,
+    },
+    students: maleStudents,
+  },
+};
+
+console.log("Object Mapping = ");
+console.log(mapObject);
