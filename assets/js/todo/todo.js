@@ -6,7 +6,7 @@ const inputan = document.getElementById("inputan");
 
 //Rest API
 const baseUrl = "https://crudcrud.com/api/";
-const apiKey = "56d5b09d779641b6ae06ae826fedd550";
+const apiKey = "ef97f37be2524f309e9d1bdd49e9d421";
 const url = baseUrl + apiKey;
 const endpointTodo = `${url}/todo`;
 
@@ -66,6 +66,15 @@ function addTodo(event) {
     .catch(handleError);
 }
 
+//DELETE TODO BY ID
+const deleteTodo = (id) => {
+  fetch(`${endpointTodo}/${id}`, {
+    method: "DELETE",
+  })
+    .then(handleSuccess)
+    .catch(handleError);
+};
+
 function deleteCheck(e) {
   const item = e.target;
 
@@ -105,29 +114,32 @@ function filterTodo(e) {
   });
 }
 
-function getLocalTodos() {
-  let todos = todos.forEach(function (todo) {
-    const todoDiv = document.createElement("div");
-    todoDiv.classList.add("todo");
-    const newTodo = document.createElement("li");
-    newTodo.innerText = todo;
-    newTodo.classList.add("todo-item");
-    todoDiv.appendChild(newTodo);
+// deleteTodo("641863c322534003e8c8edb1");
 
-    const completedButton = document.createElement("button");
-    completedButton.innerHTML = '<i class="fas fa-check-circle"></li>';
-    completedButton.classList.add("complete-btn");
-    todoDiv.appendChild(completedButton);
+// function getLocalTodos() {
+//   let todos = todos.forEach(function (todo) {
+//     const todoDiv = document.createElement("div");
+//     todoDiv.classList.add("todo");
+//     const newTodo = document.createElement("li");
+//     newTodo.innerText = todo;
+//     newTodo.classList.add("todo-item");
+//     todoDiv.appendChild(newTodo);
 
-    const trashButton = document.createElement("button");
-    trashButton.innerHTML = '<i class="fas fa-trash"></li>';
-    trashButton.classList.add("trash-btn");
-    todoDiv.appendChild(trashButton);
+//     const completedButton = document.createElement("button");
+//     completedButton.innerHTML = '<i class="fas fa-check-circle"></li>';
+//     completedButton.classList.add("complete-btn");
+//     todoDiv.appendChild(completedButton);
 
-    todoList.appendChild(todoDiv);
-  });
-}
+//     const trashButton = document.createElement("button");
+//     trashButton.innerHTML = '<i class="fas fa-trash"></li>';
+//     trashButton.classList.add("trash-btn");
+//     todoDiv.appendChild(trashButton);
 
+//     todoList.appendChild(todoDiv);
+//   });
+// }
+
+// deleteCheck("64185cd622534003e8c8ed8c");
 // function removeLocalTodos(todo) {
 // let todos;
 // if (localStorage.getItem("todos") === null) {
