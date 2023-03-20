@@ -51,7 +51,7 @@ function addTodo(event) {
   inputan.value = "";
 
   const todoObj = {
-    name: inputan,
+    name: newTodo.innerText,
     isChecked: false,
   };
 
