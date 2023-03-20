@@ -2,8 +2,28 @@ const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
+const inputan = document.getElementById("inputan");
 
-document.addEventListener("DOMContentLoaded", getLocalTodos);
+//Rest API
+const baseUrl = "https://crudcrud.com/api/";
+const apiKey = "56d5b09d779641b6ae06ae826fedd550";
+const url = baseUrl + apiKey;
+const endpointTodo = `${url}/todo`;
+
+const handleError = (error) => console.log(error);
+const handleSuccess = (result) => console.log(result);
+
+// GET semua data
+const getTodo = () => {
+  fetch(endpointTodo).then(handleSuccess).catch(handleError);
+};
+
+// GET detail data
+const detailTodo = (todo) => {
+  fetch(`${endpointTodo}/${todo}`).then(handleSuccess).catch(handleError);
+};
+
+// document.addEventListener("DOMContentLoaded");
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 filterOption.addEventListener("change", filterTodo);
@@ -13,11 +33,9 @@ function addTodo(event) {
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
   const newTodo = document.createElement("li");
-  newTodo.innerText = todoInput.value;
+  newTodo.innerText = inputan.value;
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
-  //ADDING TO LOCAL STORAGE
-  saveLocalTodos(todoInput.value);
 
   const completedButton = document.createElement("button");
   completedButton.innerHTML = '<i class="fas fa-check-circle"></li>';
@@ -30,7 +48,22 @@ function addTodo(event) {
   todoDiv.appendChild(trashButton);
 
   todoList.appendChild(todoDiv);
-  todoInput.value = "";
+  inputan.value = "";
+
+  const todoObj = {
+    name: inputan,
+    isChecked: false,
+  };
+
+  fetch(endpointTodo, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(todoObj),
+  })
+    .then(handleSuccess)
+    .catch(handleError);
 }
 
 function deleteCheck(e) {
@@ -39,11 +72,6 @@ function deleteCheck(e) {
   if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
     todo.classList.add("slide");
-
-    removeLocalTodos(todo);
-    todo.addEventListener("transitionend", function () {
-      todo.remove();
-    });
   }
 
   if (item.classList[0] === "complete-btn") {
@@ -77,25 +105,8 @@ function filterTodo(e) {
   });
 }
 
-function saveLocalTodos(todo) {
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-    todos = [];
-  } else {
-    todos = JSON.parse(localStorage.getItem("todos"));
-  }
-  todos.push(todo);
-  localStorage.setItem("todos", JSON.stringify(todos));
-}
-
 function getLocalTodos() {
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-    todos = [];
-  } else {
-    todos = JSON.parse(localStorage.getItem("todos"));
-  }
-  todos.forEach(function (todo) {
+  let todos = todos.forEach(function (todo) {
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
     const newTodo = document.createElement("li");
@@ -117,15 +128,14 @@ function getLocalTodos() {
   });
 }
 
-function removeLocalTodos(todo) {
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-    todos = [];
-  } else {
-    todos = JSON.parse(localStorage.getItem("todos"));
-  }
-
-  const todoIndex = todo.children[0].innerText;
-  todos.splice(todos.indexOf(todoIndex), 1);
-  localStorage.setItem("todos", JSON.stringify(todos));
-}
+// function removeLocalTodos(todo) {
+// let todos;
+// if (localStorage.getItem("todos") === null) {
+//   todos = [];
+// } else {
+//   todos = JSON.parse(localStorage.getItem("todos"));
+// }
+// const todoIndex = todo.children[0].innerText;
+// todos.splice(todos.indexOf(todoIndex), 1);
+// localStorage.setItem("todos", JSON.stringify(todos));
+// }
