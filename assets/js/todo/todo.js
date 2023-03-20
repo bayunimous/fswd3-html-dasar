@@ -66,6 +66,19 @@ function addTodo(event) {
     .catch(handleError);
 }
 
+//PUT UPDATE DATA
+const updateTodo = (id, todo) => {
+  fetch(`${endpointTodo}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(todo),
+  })
+    .then(handleSuccess)
+    .catch(handleError);
+};
+
 //DELETE TODO BY ID
 const deleteTodo = (id) => {
   fetch(`${endpointTodo}/${id}`, {
@@ -114,7 +127,13 @@ function filterTodo(e) {
   });
 }
 
+const updateTodoEdit = {
+  name: "Belajar Javascript",
+  isChecked: true,
+};
 // deleteTodo("641863c322534003e8c8edb1");
+updateTodo("6418637222534003e8c8edaf", updateTodoEdit);
+// detailTodo("6418637222534003e8c8edaf");
 
 // function getLocalTodos() {
 //   let todos = todos.forEach(function (todo) {
