@@ -6,14 +6,55 @@ const inputan = document.getElementById("inputan");
 
 //Rest API
 const baseUrl = "https://crudcrud.com/api/";
-const apiKey = "ef97f37be2524f309e9d1bdd49e9d421";
+const apiKey = "14170abd0392427596a23747e60330c1";
 const url = baseUrl + apiKey;
 const endpointTodo = `${url}/todo`;
 
 const handleError = (error) => console.log(error);
 const handleSuccess = (result) => console.log(result);
 
-// GET semua data
+function getLocalTodos(todo) {
+  // let todos;
+
+  todos.forEach(function (todo) {
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo");
+    const newTodo = document.createElement("li");
+    newTodo.innerText = todo;
+    newTodo.classList.add("todo-item");
+    todoDiv.appendChild(newTodo);
+    newTodo.innerText = todo.name;
+
+    const completedButton = document.createElement("button");
+    completedButton.innerHTML = '<i class="fas fa-check-circle"></li>';
+    completedButton.classList.add("complete-btn");
+    todoDiv.appendChild(completedButton);
+
+    const trashButton = document.createElement("button");
+    trashButton.innerHTML = '<i class="fas fa-trash"></li>';
+    trashButton.classList.add("trash-btn");
+    todoDiv.appendChild(trashButton);
+
+    todoList.appendChild(todoDiv);
+  });
+}
+
+//LOAD DATA FROM API REST CRUDCRUD.COM/API14170ABD0392427596A23747E60330C1
+function loadTodo() {
+  fetch(endpointTodo)
+    .then((response) => response.json())
+    .then((data) => {
+      todos = data;
+      // todos.forEach((data) => {
+      // console.log(data._id, data.name, data.isChecked);
+      getLocalTodos(data);
+      // });
+    });
+}
+
+loadTodo();
+
+// GET data todo
 const getTodo = () => {
   fetch(endpointTodo).then(handleSuccess).catch(handleError);
 };
@@ -50,6 +91,7 @@ function addTodo(event) {
   todoList.appendChild(todoDiv);
   inputan.value = "";
 
+  //METHOD POST
   const todoObj = {
     name: newTodo.innerText,
     isChecked: false,
@@ -66,7 +108,7 @@ function addTodo(event) {
     .catch(handleError);
 }
 
-//PUT UPDATE DATA
+//METHOD PUT
 const updateTodo = (id, todo) => {
   fetch(`${endpointTodo}/${id}`, {
     method: "PUT",
@@ -79,7 +121,7 @@ const updateTodo = (id, todo) => {
     .catch(handleError);
 };
 
-//DELETE TODO BY ID
+//DELETE TODO BY ID || METHOD DELETE
 const deleteTodo = (id) => {
   fetch(`${endpointTodo}/${id}`, {
     method: "DELETE",
@@ -127,46 +169,16 @@ function filterTodo(e) {
   });
 }
 
+//OBJECT UNTUK UPDATE DATA
 const updateTodoEdit = {
-  name: "Belajar Javascript",
-  isChecked: true,
+  name: "Bayu Nugraha", //sebelumnya hanya "Bayu"
+  isChecked: true, //sebelumnya false
 };
-// deleteTodo("641863c322534003e8c8edb1");
-updateTodo("6418637222534003e8c8edaf", updateTodoEdit);
-// detailTodo("6418637222534003e8c8edaf");
 
-// function getLocalTodos() {
-//   let todos = todos.forEach(function (todo) {
-//     const todoDiv = document.createElement("div");
-//     todoDiv.classList.add("todo");
-//     const newTodo = document.createElement("li");
-//     newTodo.innerText = todo;
-//     newTodo.classList.add("todo-item");
-//     todoDiv.appendChild(newTodo);
+// deleteTodo("641a22ab22534003e8c8f7bd"); //DELETE BY ID
 
-//     const completedButton = document.createElement("button");
-//     completedButton.innerHTML = '<i class="fas fa-check-circle"></li>';
-//     completedButton.classList.add("complete-btn");
-//     todoDiv.appendChild(completedButton);
+// updateTodo("6419cf5b22534003e8c8f679", updateTodoEdit); //UPDATE BY ID
 
-//     const trashButton = document.createElement("button");
-//     trashButton.innerHTML = '<i class="fas fa-trash"></li>';
-//     trashButton.classList.add("trash-btn");
-//     todoDiv.appendChild(trashButton);
+// detailTodo("6418637222534003e8c8edaf"); //GET DETAIL BY ID
 
-//     todoList.appendChild(todoDiv);
-//   });
-// }
-
-// deleteCheck("64185cd622534003e8c8ed8c");
-// function removeLocalTodos(todo) {
-// let todos;
-// if (localStorage.getItem("todos") === null) {
-//   todos = [];
-// } else {
-//   todos = JSON.parse(localStorage.getItem("todos"));
-// }
-// const todoIndex = todo.children[0].innerText;
-// todos.splice(todos.indexOf(todoIndex), 1);
-// localStorage.setItem("todos", JSON.stringify(todos));
-// }
+// Path: assets\js\todo\todo.js
