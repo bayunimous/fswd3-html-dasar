@@ -1,0 +1,224 @@
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: fit-content;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.header {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+}
+
+.head-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8em;
+  color: white;
+}
+
+.head-nav-2 a {
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+  margin: 10px;
+}
+
+.head-nav-2 a:hover {
+  background-color: rgb(255, 99, 71);
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 17.8em;
+  background-color: rgb(205, 238, 238);
+  height: 7em;
+}
+
+.header-title h3 {
+  font-size: 1.5em;
+  padding-bottom: 0.8em;
+}
+
+.section {
+  display: flex;
+  width: 85em;
+  height: 27em;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.section-1 {
+  display: flex;
+  flex-direction: column;
+  width: 68em;
+  padding: 1em;
+}
+
+.content {
+  display: flex;
+  padding: 25px;
+  margin-top: 1.5em;
+  gap: 2em;
+  height: 100%;
+}
+
+.card1,
+.card2,
+.card3 {
+  display: flex;
+  box-shadow: 3px -1px 10px 0px rgba(0, 0, 0, 0.56);
+  border-radius: 3px;
+  height: 18em;
+  width: 23em;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+}
+
+.card1 img,
+.card2 img,
+.card3 img {
+  display: flex;
+  height: 60%;
+  width: 85%;
+  border-radius: 5px;
+}
+
+.card1 span,
+.card2 span,
+.card3 span {
+  display: flex;
+  padding: 1em 0 0 2px;
+  height: 4.5em;
+  width: 17em;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.card1 p,
+.card2 p,
+.card3 p {
+  font-size: small;
+  padding: 2px;
+  background-color: rgb(221, 245, 245);
+  border-radius: 5px;
+}
+
+.section-2 {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  padding: 1em;
+  gap: 10px;
+  height: fit-content;
+  margin-top: 3em;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.section-2-title {
+  display: flex;
+  flex-direction: column;
+  height: 5em;
+  justify-content: center;
+}
+
+.section-2-list {
+  display: flex;
+  height: 40%;
+  flex-direction: column;
+  gap: 10px;
+  font-size: small;
+}
+
+/* 
+    responsive design for mobile devices 480px and below
+*/
+
+@media screen and (max-width: 480px) {
+  .header,
+  .head-nav,
+  .head-nav-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-title {
+    display: none;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    /* width: fit-content; */
+    width: 480px;
+    min-height: 100vh;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.4em;
+  }
+
+  .card1,
+  .card2,
+  .card3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 3px -1px 10px 0px rgba(0, 0, 0, 0.56);
+    border-radius: 3px;
+  }
+
+  .card1 img,
+  .card2 img,
+  .card3 img {
+    display: flex;
+    border-radius: 5px;
+  }
+
+  .card1 span,
+  .card2 span,
+  .card3 span {
+    display: flex;
+  }
+
+  .card1 p,
+  .card2 p,
+  .card3 p {
+    background-color: rgb(221, 245, 245);
+    border-radius: 5px;
+    margin-bottom: 1em;
+    font-size: small;
+  }
+
+  .section-2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.8em;
+    margin-left: 1em;
+    background-color: #f5f5f5;
+    padding: 1em;
+    border: none;
+  }
+}
